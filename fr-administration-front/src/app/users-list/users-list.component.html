@@ -1,0 +1,63 @@
+<div class="p-8 space-y-8">
+
+  <!-- Toggle button -->
+  <button 
+    (click)="toggleOverview()" 
+    class="btn btn-sm bg-indigo-500  hover:bg-indigo-700 rounded-lg px-4 py-2">
+    Toggle Overview
+  </button>
+
+  <div *ngIf="isOverviewVisible" class="stats shadow-lg w-full bg-gradient-to-r from-indigo-500 to-purple-600  p-5 rounded-lg">
+    <div class="stat">
+      <div class="stat-figure text-pink-200">
+
+      </div>
+      <div class="stat-title text-lg">Users</div>
+      <div class="stat-value text-3xl font-semibold">{{ dataSource.length }}</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-figure text-pink-200">
+
+      </div>
+      <div class="stat-title text-lg">Mean Age</div>
+      <div class="stat-value text-3xl font-semibold">{{ meanAge }}</div>
+    </div>
+
+
+  </div>
+
+  <div class="mb-6">
+    <app-search-user></app-search-user>
+  </div>
+
+  <div class="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
+    <table class="table w-full text-gray-700">
+      <!-- head -->
+      <thead class="bg-gradient-to-r from-indigo-500 to-purple-600 ">
+        <tr>
+          <th class="p-3">ID</th>
+          <th class="p-3">First Name</th>
+          <th class="p-3">Last Name</th>
+          <th class="p-3">Age</th>
+          <th class="p-3">
+            <button (click)="newUser()" class="btn btn-sm bg-pink-500 hover:bg-pink-700 rounded-full px-4 py-2" id="open-new-user-modal-button">New User</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of dataSource" class="border-b hover:bg-gray-100">
+          <th class="p-3">{{ user.id }}</th>
+          <td class="p-3">{{ user.firstname }}</td>
+          <td class="p-3">{{ user.lastname }}</td>
+          <td class="p-3">{{ user.age }}</td>
+          <th class="p-3">
+            <a [routerLink]="['/users', user.id]" class="btn btn-ghost btn-xs text-indigo-600 hover:text-indigo-800"
+              >Details</a
+            >
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

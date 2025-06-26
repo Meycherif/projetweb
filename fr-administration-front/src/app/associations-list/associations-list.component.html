@@ -1,0 +1,81 @@
+<div class="p-10 space-y-10">
+  <h1 class="text-5xl font-bold">Associations</h1>
+
+  <div>
+    <app-search-association [search]="findAssociation"></app-search-association>
+  </div>
+
+
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Members</th>
+        <th>
+          <label class="btn btn-sm" for="new-association-modal"
+              >New association</label
+            >
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let association of associations">
+          <td>{{ association.name }}</td>
+          <th>
+            <div class="avatar-group -space-x-6">
+              <div
+                *ngIf="association.members.length === 0"
+                class="flex items-center space-x-2"
+              >
+                <div class="avatar">
+                  <div class="w-12">
+                    <img
+                      alt="lost"
+                      class="object-cover"
+                      src="https://media.tenor.com/5R1whvx7pOkAAAAC/lost-johntravolta.gif"
+                    />
+                  </div>
+                </div>
+
+                <div>No members yet...</div>
+              </div>
+
+              <div
+                *ngFor="let member of association.members.slice(0, 3)"
+                class="avatar placeholder"
+              >
+                <div class="w-12 bg-neutral-focus text-neutral-content">
+                  <span
+                    >{{ member.firstname.charAt(0)
+                    }}{{ member.lastname.charAt(0) }}</span
+                  >
+                </div>
+              </div>
+
+              <div
+                *ngIf="association.members.length > 3"
+                class="avatar placeholder"
+              >
+                <div class="w-12 bg-neutral-focus text-neutral-content">
+                  <span>+{{ association.members.length - 3 }}</span>
+                </div>
+              </div>
+            </div>
+          </th>
+          <th>
+            <a
+              [routerLink]="['/associations', association.id]"
+              class="btn btn-ghost btn-xs"
+              >details</a
+            >
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<app-new-association-dialog (associationCreate)="addAssociation($event)"></app-new-association-dialog>

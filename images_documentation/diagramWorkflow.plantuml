@@ -1,0 +1,45 @@
+@startuml diagramWorkflow
+skinparam shadowing false
+skinparam monochrome false
+skinparam arrowThickness 1
+skinparam roundcorner 15
+skinparam linetype ortho
+skinparam defaultFontName "Arial"
+skinparam defaultFontSize 14
+skinparam defaultFontColor #333333
+
+' Title of the diagram
+title Workflow of Angular CRUD Application
+
+' User Interaction
+actor User as "End User"
+
+package "Frontend (Angular)" {
+    component "UI Component" as UI
+    component "Service Layer" as Service
+}
+
+package "Backend (NestJs)" {
+    component "API Gateway" as API
+    component "Authentication Middleware" as Auth
+    component "Controller" as Controller
+    component "Database Handler (SQLITE)" as DBHandler
+    database "Database" as DB
+}
+
+' Interaction
+User --> UI : Inputs (Create/Read/Update/Delete Request)
+UI --> Service : HTTP Request
+Service --> API : RESTful API Call
+API --> Auth : Token Validation
+Auth --> Controller : Forward Request
+Controller --> DBHandler : Query Execution
+DBHandler --> DB : CRUD Operations
+DB --> DBHandler : Data Result
+DBHandler --> Controller : Query Result
+Controller --> API : Response Data
+API --> Service : JSON Response
+Service --> UI : Render Data
+UI --> User : Outputs (Rendered Response)
+
+@enduml

@@ -1,0 +1,56 @@
+/* users-list.component.css */
+
+.users-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.users-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.users-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.users-list table th,
+.users-list table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-list table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.users-list table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.users-list .actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.users-list .actions button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.users-list .actions button:hover {
+  background-color: #0056b3;
+}

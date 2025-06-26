@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 10px;
+}
+
+input {
+  padding: 6px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
