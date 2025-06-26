@@ -27,10 +27,10 @@ Ce projet vise à développer une application web pour la gestion des associatio
 
 ### Lancement du backend
 
-```bash
+
 npm install
 npm run start
-###Accéder à la documentation : http://localhost:3000/api
+### Accéder à la documentation : http://localhost:3000/api
 
 Entités et Relations
 Users : Utilisateurs avec id, nom
@@ -51,7 +51,7 @@ PUT /users/:id
 
 DELETE /users/:id
 
-###Associations
+### Associations
 Même logique que les utilisateurs
 
 Rôles & Minutes
@@ -72,7 +72,6 @@ Angular CLI (npm install -g @angular/cli)
 Visual Studio Code
 
 ###Lancement du frontend
-bash
 Copier
 Modifier
 npm install
@@ -85,10 +84,10 @@ Page de connexion (JWT stocké dans localStorage)
 
 Déconnexion (suppression du JWT, redirection)
 
-###Gestion des utilisateurs
+### Gestion des utilisateurs
 Affichage, ajout, modification, suppression
 
-###Gestion des associations
+### Gestion des associations
 Création, édition, suppression
 
 Architecture & Technologies
@@ -133,9 +132,9 @@ this.http.get('http://localhost:3000/users').subscribe(
 ### Tests
 Tests automatiques : Angular CLI
 
-###Tests manuels : Authentification, requêtes CRUD, navigation
+### Tests manuels : Authentification, requêtes CRUD, navigation
 
-###Conclusion
+### Conclusion
 Ce projet propose une solution complète pour gérer les associations et les utilisateurs :
 
 Backend robuste avec NestJS & SQLite
